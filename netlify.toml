@@ -2,13 +2,8 @@
   command = "npm run build"
   publish = "build"
 
+[build.environment]
+  NPM_FLAGS = "--legacy-peer-deps"
+
 [context.production.environment]
-  NODE_VERSION = "16"
-
-[context.deploy-preview]
-  command = "npm run build"
-  publish = "build"
-
-[context.branch-deploy]
-  command = "npm run build"
-  publish = "build"
+  NPM_FLAGS = "--legacy-peer-deps"
