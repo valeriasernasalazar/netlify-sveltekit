@@ -27,6 +27,7 @@
  */
 declare module '$env/static/private' {
 	export const MANPATH: string;
+	export const npm_config_legacy_peer_deps: string;
 	export const TERM_PROGRAM: string;
 	export const NODE: string;
 	export const INIT_CWD: string;
@@ -38,6 +39,7 @@ declare module '$env/static/private' {
 	export const CONDA_SHLVL: string;
 	export const CONDA_PROMPT_MODIFIER: string;
 	export const TERM_PROGRAM_VERSION: string;
+	export const npm_package_optional: string;
 	export const COLOR: string;
 	export const TERM_SESSION_ID: string;
 	export const npm_config_noproxy: string;
@@ -45,9 +47,11 @@ declare module '$env/static/private' {
 	export const USER: string;
 	export const npm_config_globalconfig: string;
 	export const CONDA_EXE: string;
+	export const npm_package_peer: string;
 	export const SSH_AUTH_SOCK: string;
 	export const __CF_USER_TEXT_ENCODING: string;
 	export const npm_execpath: string;
+	export const npm_package_integrity: string;
 	export const _CE_CONDA: string;
 	export const PATH: string;
 	export const npm_package_json: string;
@@ -64,13 +68,17 @@ declare module '$env/static/private' {
 	export const npm_package_name: string;
 	export const npm_config_npm_version: string;
 	export const XPC_FLAGS: string;
+	export const npm_package_engines_node: string;
 	export const npm_config_node_gyp: string;
+	export const npm_package_dev: string;
 	export const npm_package_version: string;
 	export const _CE_M: string;
 	export const XPC_SERVICE_NAME: string;
+	export const npm_package_resolved: string;
 	export const SHLVL: string;
 	export const HOME: string;
 	export const HOMEBREW_PREFIX: string;
+	export const npm_package_dev_optional: string;
 	export const npm_config_cache: string;
 	export const CONDA_PYTHON_EXE: string;
 	export const LOGNAME: string;
@@ -83,7 +91,6 @@ declare module '$env/static/private' {
 	export const DISPLAY: string;
 	export const npm_node_execpath: string;
 	export const npm_config_prefix: string;
-	export const NODE_ENV: string;
 }
 
 /**
@@ -100,11 +107,9 @@ declare module '$env/static/public' {
 }
 
 /**
- * This module provides access to runtime environment variables, as defined by the platform you're running on. For example if you're using [`adapter-node`](https://github.com/sveltejs/kit/tree/main/packages/adapter-node) (or running [`vite preview`](https://kit.svelte.dev/docs/cli)), this is equivalent to `process.env`. This module only includes variables that _do not_ begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) _and do_ start with [`config.kit.env.privatePrefix`](https://kit.svelte.dev/docs/configuration#env) (if configured).
+ * This module provides access to runtime environment variables, as defined by the platform you're running on. For example if you're using [`adapter-node`](https://github.com/sveltejs/kit/tree/master/packages/adapter-node) (or running [`vite preview`](https://kit.svelte.dev/docs/cli)), this is equivalent to `process.env`. This module only includes variables that _do not_ begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) _and do_ start with [`config.kit.env.privatePrefix`](https://kit.svelte.dev/docs/configuration#env) (if configured).
  * 
  * This module cannot be imported into client-side code.
- * 
- * Dynamic environment variables cannot be used during prerendering.
  * 
  * ```ts
  * import { env } from '$env/dynamic/private';
@@ -116,6 +121,7 @@ declare module '$env/static/public' {
 declare module '$env/dynamic/private' {
 	export const env: {
 		MANPATH: string;
+		npm_config_legacy_peer_deps: string;
 		TERM_PROGRAM: string;
 		NODE: string;
 		INIT_CWD: string;
@@ -127,6 +133,7 @@ declare module '$env/dynamic/private' {
 		CONDA_SHLVL: string;
 		CONDA_PROMPT_MODIFIER: string;
 		TERM_PROGRAM_VERSION: string;
+		npm_package_optional: string;
 		COLOR: string;
 		TERM_SESSION_ID: string;
 		npm_config_noproxy: string;
@@ -134,9 +141,11 @@ declare module '$env/dynamic/private' {
 		USER: string;
 		npm_config_globalconfig: string;
 		CONDA_EXE: string;
+		npm_package_peer: string;
 		SSH_AUTH_SOCK: string;
 		__CF_USER_TEXT_ENCODING: string;
 		npm_execpath: string;
+		npm_package_integrity: string;
 		_CE_CONDA: string;
 		PATH: string;
 		npm_package_json: string;
@@ -153,13 +162,17 @@ declare module '$env/dynamic/private' {
 		npm_package_name: string;
 		npm_config_npm_version: string;
 		XPC_FLAGS: string;
+		npm_package_engines_node: string;
 		npm_config_node_gyp: string;
+		npm_package_dev: string;
 		npm_package_version: string;
 		_CE_M: string;
 		XPC_SERVICE_NAME: string;
+		npm_package_resolved: string;
 		SHLVL: string;
 		HOME: string;
 		HOMEBREW_PREFIX: string;
+		npm_package_dev_optional: string;
 		npm_config_cache: string;
 		CONDA_PYTHON_EXE: string;
 		LOGNAME: string;
@@ -172,7 +185,6 @@ declare module '$env/dynamic/private' {
 		DISPLAY: string;
 		npm_node_execpath: string;
 		npm_config_prefix: string;
-		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}
@@ -182,8 +194,6 @@ declare module '$env/dynamic/private' {
  * Similar to [`$env/dynamic/private`](https://kit.svelte.dev/docs/modules#$env-dynamic-private), but only includes variables that begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) (which defaults to `PUBLIC_`), and can therefore safely be exposed to client-side code.
  * 
  * Note that public dynamic environment variables must all be sent from the server to the client, causing larger network requests — when possible, use `$env/static/public` instead.
- * 
- * Dynamic environment variables cannot be used during prerendering.
  * 
  * ```ts
  * import { env } from '$env/dynamic/public';
