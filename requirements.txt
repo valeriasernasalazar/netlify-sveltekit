@@ -1,0 +1,12 @@
+Flask
+flask_cors
+cryptography
+plotly
+json
+psycopg2
+pandas
+Levenshtein
+statsmodels
+numpy
+python-dotenv
+gunicorn

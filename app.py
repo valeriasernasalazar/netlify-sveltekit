@@ -938,4 +938,5 @@ def generar_grafica_ingresos(df, forecasts, output_path="/static/evolucion_ingre
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Obtén el puerto de la variable de entorno o usa 5000 por defecto
+    app.run(host='0.0.0.0', port=port, debug=True)
