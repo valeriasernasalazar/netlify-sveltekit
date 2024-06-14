@@ -1,4 +1,14 @@
 [build]
-    command = "npm run build"
-    publish = "build/"
-    functions = "functions/"
+  command = "npm run build"
+  publish = "build"
+
+[context.production.environment]
+  NODE_VERSION = "16"
+
+[context.deploy-preview]
+  command = "npm run build"
+  publish = "build"
+
+[context.branch-deploy]
+  command = "npm run build"
+  publish = "build"
