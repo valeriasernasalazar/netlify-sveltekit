@@ -1,13 +1,14 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node.js backend server",
   "main": "admin.js",
   "scripts": {
+    "start": "node admin.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tu Nombre",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
